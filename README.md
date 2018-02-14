@@ -1,2 +1,22 @@
 # tf_rsvi
 Pure Tensorflow implementation of Rejection Sampling Variational Inference.
+
+Code implements a sparse Gamma Deep Exponential Family model ("Deep Exponential Families" - Rajesh Ranganath, Linpeng Tang, Laurent Charlin, David M. Blei) with Rejection Sampling VI ("Reparameterization Gradients through Acceptance-Rejection Sampling Algorithms" - Christian A. Naesseth, Francisco J. R. Ruiz, Scott W. Linderman, David M. Blei).
+
+Citations:
+```
+Deep Exponential Families.
+Rajesh Ranganath, Linpeng Tang, Laurent Charlin, David M. Blei.
+Proceedings of the Eighteenth International Conference on Artificial Intelligence and Statistics, PMLR 38:762-771, 2015.
+```
+
+```
+Reparameterization Gradients through Acceptance-Rejection Sampling Algorithms.
+Christian A. Naesseth, Francisco J. R. Ruiz, Scott W. Linderman, and David M. Blei
+Proceedings of the 20th International Conference on Artificial Intelligence and Statistics 2017,
+Fort Lauderdale, Florida, USA.
+```
+
+Code is deeply indebted to the work at [blei-lab/ars-reparameterization](https://github.com/blei-lab/ars-reparameterization).
+
+That code provides a few more examples (work in progress) but is designed to run on CPU. This code runs on Tensorflow v1.4 and runs ~10x faster on a GTX 980.
