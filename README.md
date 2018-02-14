@@ -22,9 +22,9 @@ Code is deeply indebted to the work at [blei-lab/ars-reparameterization](https:/
 
 That code provides a few more examples (work in progress) but is designed to run on CPU. This code runs on Tensorflow v1.4 and runs ~10x faster on a GTX 980.
 
-Unconditional Poisson samples from model after 500 steps...
+Poisson samples from model after 500 steps...
 
-![unconditional samples](https://github.com/tomblaze/tf_rsvi/blob/master/unconditional_sample.png)
+![samples](https://github.com/tomblaze/tf_rsvi/blob/master/unconditional_sample.png)
 
 ELBO over course of training (500 steps, comparable to RSVI paper but ~40s).
 
