@@ -25,6 +25,6 @@ Unconditional Poisson samples from model after 500 steps...
 
 ![unconditional samples](https://github.com/tomblaze/tf_rsvi/blob/master/unconditional_sample.png)
 
-ELBO over course of training (500 steps, comparable to RSVI paper but ~40s.
+ELBO over course of training (500 steps, comparable to RSVI paper but ~40s).
 
 ![ELBO over time](https://github.com/tomblaze/tf_rsvi/blob/master/example_run.png)
