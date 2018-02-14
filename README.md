@@ -5,16 +5,17 @@ Code implements a sparse Gamma Deep Exponential Family model with Rejection Samp
 
 Citations:
 ```
-Deep Exponential Families.
-Rajesh Ranganath, Linpeng Tang, Laurent Charlin, David M. Blei.
-Proceedings of the Eighteenth International Conference on Artificial Intelligence and Statistics, PMLR 38:762-771, 2015.
-```
-
-```
 Reparameterization Gradients through Acceptance-Rejection Sampling Algorithms.
 Christian A. Naesseth, Francisco J. R. Ruiz, Scott W. Linderman, and David M. Blei
 Proceedings of the 20th International Conference on Artificial Intelligence and Statistics 2017,
 Fort Lauderdale, Florida, USA.
+```
+
+```
+Deep Exponential Families.
+Rajesh Ranganath, Linpeng Tang, Laurent Charlin, David M. Blei.
+Proceedings of the Eighteenth International Conference on Artificial Intelligence and Statistics,
+PMLR 38:762-771, 2015.
 ```
 
 Code is deeply indebted to the work at [blei-lab/ars-reparameterization](https://github.com/blei-lab/ars-reparameterization).
