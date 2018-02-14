@@ -1,6 +1,8 @@
 import tensorflow as tf
 import numpy as np
 
+#Code is a very basic adaptation of work by @naesseth at https://github.com/blei-lab/ars-reparameterization/blob/master/README.md
+
 TINY = 1e-15 #small constant for logs.
 
 def calc_epsilon(p, alpha):
