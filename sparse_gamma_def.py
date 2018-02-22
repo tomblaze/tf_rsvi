@@ -137,10 +137,13 @@ class Gamma_Layer(object):
 
 		u_pow = tf.pow(self.last_uniform_draw, 1. / alpha_vec)
 
-		gamma_sample *= tf.reduce_prod(u_pow, axis=-1)
+		#gamma_sample *= tf.reduce_prod(u_pow, axis=-1)
 
 		eps = calc_epsilon(gamma_sample, alpha + global_B)
 		h_val = gamma_h(eps, alpha + global_B)
+
+		h_val *= tf.reduce_prod(u_pow, axis=-1) #whoops, think this makes more sense.
+
 		sample = h_val * (mean / alpha)
 		sample = tf.maximum(sample, 1e-5)
 
@@ -178,16 +181,23 @@ class SG_DEF_Model(object):
 
 		l_prob = weight_log_prob + tf.reduce_sum(z_log_prob)
 
+		layer_wise = [z_log_prob,]
+
 		z_count = 0
 		for (z, w) in zip(z_L[:-1], w_L[:-1]):
 			z_sum_w = tf.matmul(z, w)
 			g_alpha = self.layer_alpha
 			g_beta = g_alpha / z_sum_w
-			l_prob += tf.reduce_sum(gamma_log_prob(g_alpha, g_beta, z_L[z_count + 1]))
+			l_p = tf.reduce_sum(gamma_log_prob(g_alpha, g_beta, z_L[z_count + 1]))
+			layer_wise.append(l_p)
+			l_prob += l_p
 			z_count += 1
 
 		obs_sum_w = tf.matmul(z_L[-1], w_L[-1])
 		l_prob += tf.reduce_sum(poisson_log_prob(batch, obs_sum_w))
+
+		for i in range(len(layer_wise)):
+			tf.summary.scalar("l_p_%i" %(i), tf.reduce_mean(layer_wise[i]))
 
 		#tf.summary.image("batch", tf.transpose(tf.reshape(batch, [320, 64, 64, 1]), [0, 2, 1, 3]), max_outputs = 4)
 		#tf.summary.image("obs_sum_w", tf.transpose(tf.reshape(obs_sum_w, [320, 64, 64, 1]), [0, 2, 1, 3]), max_outputs=4)
